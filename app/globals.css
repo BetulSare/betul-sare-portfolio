@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { @apply bg-bg text-ink font-sans antialiased; }
+::selection { background: rgba(59,130,246,.2); }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8; }
+  .label { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute; }
+  .h2 { @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.08]; }
+  .pill { @apply inline-flex items-center rounded-full border border-line bg-white/70 px-3 py-1 text-xs font-medium text-ink-soft; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300; }
+  .btn-primary { @apply btn bg-ink text-white hover:bg-accent hover:shadow-lift; }
+  .btn-ghost { @apply btn border border-line bg-white/70 text-ink hover:border-accent/40 hover:bg-white; }
+  .card { @apply rounded-xl2 border border-line bg-white shadow-soft; }
+}
+.grid-bg {
+  background-image: linear-gradient(to right, rgba(15,23,42,.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 70%);
+}
+@keyframes dash { to { stroke-dashoffset: -60; } }
+.dash-flow { animation: dash 4s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .dash-flow { animation: none; } html { scroll-behavior: auto; } }
